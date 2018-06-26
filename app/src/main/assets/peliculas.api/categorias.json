@@ -1,0 +1,186 @@
+[
+  {
+    "id": "1",
+    "titulo": "Para el nerd que llevás dentro",
+    "peliculas": [
+      {
+        "id": "1",
+        "titulo": "Star Wars - Los últimos Jedi",
+        "genero": "Ciencia ficción",
+        "imagen": "starwars",
+        "director": "Rian Johnson",
+        "lanzamiento": "2017",
+        "duracion": "152",
+        "artistas": [
+          "Mark Hamill",
+          "Carrie Fisher",
+          "Adam Driver",
+          "Daisy Ridley",
+          "John Boyega",
+          "Oscar Isaac",
+          "Andy Serkis",
+          "Lupita Nyong'o",
+          "Domhnall Gleeson",
+          "Anthony Daniels"
+        ],
+        "video_id": "anOJjqQb8x0",
+        "descripcion": "La malvada Primera Orden se ha vuelto más poderosa y tiene contra las cuerdas a la Resistencia, liderada por la General Leia Organa (Carrie Fisher). El piloto Poe Dameron (Oscar Isaac) encabeza una misión para intentar destruir un acorazado de la Primera Orden. Mientras tanto, la joven Rey (Daisy Ridley) tendrá que definir su futuro y su vocación, y el viejo jedi Luke Skywalker (Mark Hamill) revaluar el significado de su vida.",
+        "puntuacion": "5.4"
+      },
+      {
+        "id": "2",
+        "titulo": "Tron",
+        "genero": "Ciencia Ficción",
+        "imagen": "tron",
+        "director": "Steven Lisberger",
+        "lanzamiento": "1982",
+        "duracion": "82",
+        "artistas": [
+          "Jeff Bridges",
+          "Bruce Boxleitner",
+          "David Warner",
+          "Cindy Morgan",
+          "Barnard Hughes",
+          "Dan Shor",
+          "Peter Jurasik",
+          "Tony Stephano",
+          "Craig Chudy",
+          "Mihael Dudikoff"
+        ],
+        "video_id": "4_wS7GLZQxc",
+        "descripcion": "Un hacker es dividido en moléculas y transportado a las entrañas de un ordenador en el que un malvado programa controla los comportamientos a su antojo. ",
+        "puntuacion": "6.8"
+      },
+      {
+        "id": "3",
+        "titulo": "Interestelar",
+        "genero": "Ciencia ficción. Aventura espacial",
+        "imagen": "interestellar",
+        "director": "Christopher Nolan",
+        "lanzamiento": "2014",
+        "duracion": "169",
+        "artistas": [
+          "Matthew McConaughey",
+          "Anne Hathaway",
+          "David Gyasi",
+          "Jessica Chastain",
+          "Mackenzie Foy",
+          "Matt Damon",
+          "Michael Caine",
+          "Leah Cairns"
+        ],
+        "video_id": "UoSSbmD9vqc",
+        "descripcion": "Al ver que la vida en la Tierra está llegando a su fin, un grupo de exploradores dirigidos por el piloto Cooper (McConaughey) y la científica Amelia (Hathaway) emprende una misión que puede ser la más importante de la historia de la humanidad: viajar más allá de nuestra galaxia para descubrir algún planeta en otra que pueda garantizar el futuro de la raza humana.",
+        "puntuacion": "7.3"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "titulo": "Sólo para valientes",
+    "peliculas": [
+      {
+        "id": "4",
+        "titulo": "Cementerio de animales",
+        "director": "Mary Lambert",
+        "genero": "Terror. Sobrenatural",
+        "imagen": "cementerio_de_animales",
+        "duracion": "104",
+        "lanzamiento": "1989",
+        "artistas": [
+          "Dale Midkiff",
+          "Fred Gwynne",
+          "Denise Crosby",
+          "Brad Greenquist",
+          "Michael Lombard",
+          "Stephen King"
+        ],
+        "video_id": "vf7jiH3SFe8",
+        "descripcion": "El doctor Louis Creed, su esposa y sus dos niños se instalan en una vivienda próxima a una carretera con mucho tráfico. Cerca de la casa hay un sendero que lleva a un cementerio de animales y también a un antiguo cementerio indio; según la leyenda, los que sean enterrados allí volverán a la vida. Louis comprobará que es cierto cuando el gato de su hija es atropellado por un camión y un extraño vecino llamado Jud resucita al pequeño animal.",
+        "puntuacion": "6.2"
+      },
+      {
+        "id": "5",
+        "titulo": "Misery",
+        "director": "Rob Reiner",
+        "genero": "Terror. Drama",
+        "duracion": "90",
+        "imagen": "misery",
+        "lanzamiento": "1990",
+        "artistas": [
+          "Kathy Bates",
+          "James Caan",
+          "Frances Sternhagen",
+          "Richard Farnsworth",
+          "Lauren Bacall"
+        ],
+        "video_id": "d8LgoC0wwe8",
+        "descripcion": "Un escritor llamado Paul Sheldon (James Caan) lleva años malgastando su talento con unas románticas historias, de gran éxito comercial, cuya protagonista es una mujer llamada Misery. Decidido a acabar con esta situación, mata al personaje y se refugia en Colorado para escribir una novela seria. Terminado su trabajo, emprende el regreso, pero en una carretera de montaña, pierde el control de su coche y sufre un grave accidente. Annie Wilkes (Kathy Bates), una brusca e impetuosa mujer, gran admiradora suya, lo rescata, se lo lleva a su casa y lo cuida con esmero. Obsesionada con el personaje de Misery, retiene a Sheldon para obligarlo a escribir una nueva historia en la que resucite al personaje.",
+        "puntuacion": "7.5"
+      },
+      {
+        "id": "6",
+        "titulo": "La mano que mece la cuna",
+        "director": "Curtis Hanson",
+        "duracion": "105",
+        "genero": "Thriller. Intriga",
+        "imagen": "la_mano_que_mece_la_cuna",
+        "lanzamiento": "1992",
+        "artistas": [
+          "Rebecca de Mornay",
+          "Matt McCoy",
+          "Julianne Moore",
+          "Annabella Sciorra",
+          "Madaline Zima"
+        ],
+        "video_id": "VfntnKk8LFs",
+        "descripcion": "La mano que mece la cuna es la mano que domina el mundo. Tras perder a su hijo y ver arruinada la carrera de su marido, una mujer (Rebecca de Mornay) decide vengarse de Claire Bartel, a la que acusa de toda sus desgracias. Para ello consigue introducirse en su casa como niñera.",
+        "puntuacion": "7.8"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "titulo": "Víspera de Navidad",
+    "peliculas": [
+      {
+        "id": "7",
+        "titulo": "Una Navidad con los Muppets",
+        "genero": "Infantil. Comedia",
+        "imagen": "una_navidad_con_los_muppets",
+        "director": "Brian Henson",
+        "lanzamiento": "1992",
+        "duracion": "86",
+        "artistas": [
+          "The Muppets",
+          "Michael Caine",
+          "Steven Mackintosh",
+          "Robin Weaver"
+        ],
+        "video_id": "IEd8F_p6EUU",
+        "descripcion": "El clásico 'Cuento de Navidad' de Charles Dickens. Michael Caine da vida al avaro Mr. Scrooge, quien recibe la visita de unos fantasmas la noche de navidad y es transportado a su pasado, presente y futuro, viendo que el panorama es muy poco alentador.",
+        "puntuacion": "5.1"
+      },
+      {
+        "id": "8",
+        "titulo": "Mi pobre angelito",
+        "genero": "Comedia. Navidad",
+        "imagen": "mi_pobre_angelito",
+        "director": "Chris Colombus",
+        "lanzamiento": "1990",
+        "duracion": "100",
+        "artistas": [
+          "Macaulay Culkin",
+          "Joe Pesci",
+          "Daniel Stern",
+          "John Heard",
+          "Roberts Blossom",
+          "John Candy"
+        ],
+        "video_id": "xPiEPs4-ePc",
+        "descripcion": "Kevin McAllister es un niño de ocho años, miembro de una familia numerosa, que accidentalmente se queda abandonado en su casa cuando toda la familia se marcha a pasar las vacaciones a Francia. Kevin aprende a valerse por sí mismo e incluso a protegerse de Harry y Marv, dos bribones que se proponen asaltar todas las casas cerradas de su vecindario. en cuanto su madre lo echa en falta, regresa apresuradamente a Chicago para recuperar a su hijo. ",
+        "puntuacion": "5.5"
+      }
+    ]
+  }
+]

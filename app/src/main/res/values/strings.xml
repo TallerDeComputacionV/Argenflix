@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Argenflix</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="contacto">Contacto</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="bienvenido_1">Bienvenido a Argenflix!</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="olvid_mi_contrase_a">Olvidé mi contraseña</string>
+    <string name="no_podes_ingresar">¿NO PODÉS INGRESAR?</string>
+    <string name="recuperarAcceso">Recuperar acceso a la cuenta</string>
+    <string name="olvideContraseña">Olvidé mi contraseña</string>
+    <string name="olvideUsuario">Olvidé mi nombre de usuario</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="problemaIngresar">Problema para ingresar a Argenflix</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="agregadoAFavoritos">%1$s se agregó a tus favoritos!</string>
+    <string name="quitadoDeFavoritos">%1$s se quitó de tus favoritos</string>
+    <!--PeliculaDetailsActivity-->
+    <string name="duracion">%1$s minutos</string>
+    <string name="misFavoritos">Mis favoritos</string>
+    <string name="sinFavoritos">Todavía no agregaste películas a tus favoritos :(</string>
+    <string name="title_activity_login2">Argenflix</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="masDe3Intentos">Hubo más de 3 intentos fallidos, cerrando aplicación.</string>
+    <string name="userOPassIncorrecto">El usuario o contraseña ingresado es incorrecto.</string>
+    <string name="title_activity_perfil">Mi perfil</string>
+    <string name="buscarPeliculas">Buscar películas</string>
+    <string name="noHayPeliculas">No hay películas que coincidan con tu criterio de búsqueda</string>
+
+</resources>
