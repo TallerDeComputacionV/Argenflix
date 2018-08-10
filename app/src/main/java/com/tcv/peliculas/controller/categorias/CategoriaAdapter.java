@@ -3,12 +3,10 @@ package com.tcv.peliculas.controller.categorias;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.tcv.peliculas.R;
 import com.tcv.peliculas.controller.peliculas.ListaPeliculasAdapter;
 import com.tcv.peliculas.model.Categoria;
@@ -35,12 +33,7 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.Cate
 
     @Override
     public void onBindViewHolder(CategoriaViewHolder holder, int position) {
-        //Primero seteamos el layout de la tarjeta principal, correspondiente a la categoria, asignandole un título
         holder.tvTitulo.setText(categorias.get(position).getTitulo());
-
-        Log.d("categorias", categorias.get(position).getPeliculas().toString());
-
-        //adapter para la lista de peliculas, asociadas a un layout tipo linear horizontal
         ListaPeliculasAdapter adapter = new ListaPeliculasAdapter(categorias.get(position).getPeliculas(), context);
         holder.rvPeliculas.setHasFixedSize(true);
         holder.rvPeliculas.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));

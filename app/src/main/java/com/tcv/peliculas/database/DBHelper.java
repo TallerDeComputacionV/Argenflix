@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
     private final static String DB_NAME = "argenflix";
-    private final static int DB_VERSION = 5;
+    private final static int DB_VERSION = 6;
 
     public DBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -41,6 +41,13 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         String where = Favorito.COLUMN_PELICULA_ID + "= ?";
         db.delete(Favorito.TABLE_NAME, where, new String[]{String.valueOf(pelicula.getId())});
+        db.close();
+    }
+
+    public void eliminarFavoritos() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String where = Favorito.COLUMN_PELICULA_ID + "= ?";
+        db.delete(Favorito.TABLE_NAME, null, null);
         db.close();
     }
 

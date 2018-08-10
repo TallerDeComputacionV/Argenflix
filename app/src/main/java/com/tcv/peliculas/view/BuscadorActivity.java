@@ -7,47 +7,37 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.tcv.peliculas.R;
 import com.tcv.peliculas.api.ApiClient;
 import com.tcv.peliculas.controller.buscador.BuscadorAdapter;
-import com.tcv.peliculas.model.Categoria;
 import com.tcv.peliculas.model.Pelicula;
-
-import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BuscadorActivity extends AppCompatActivity {
-    private BuscadorAdapter mAdapter;
-    private ListView mListView;
-    private TextView mEmptyView;
-
+    private BuscadorAdapter buscadorAdapter;
+    private ListView lvPeliculas;
+    private TextView tvNoHayPeliculas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buscador);
 
-//        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mListView = (ListView) findViewById(R.id.list);
-        mEmptyView = (TextView) findViewById(R.id.emptyView);
+        lvPeliculas = findViewById(R.id.lvPeliculas);
+        tvNoHayPeliculas = findViewById(R.id.tvNoHayPeliculas);
 
         inicializarToolbar();
-//        setSupportActionBar(mToolbar);
         getPeliculas();
-
     }
 
     private void inicializarToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -59,44 +49,42 @@ public class BuscadorActivity extends AppCompatActivity {
     }
 
     private void getPeliculas() {
-
         ApiClient.getClient(this).getPeliculas().enqueue(new Callback<List<Pelicula>>() {
             @Override
             public void onResponse(Call<List<Pelicula>> call, Response<List<Pelicula>> response) {
-                mAdapter = new BuscadorAdapter(BuscadorActivity.this, response.body());
-                mListView.setAdapter(mAdapter);
-                mListView.setEmptyView(mEmptyView);
+                buscadorAdapter = new BuscadorAdapter(BuscadorActivity.this, response.body());
+                lvPeliculas.setAdapter(buscadorAdapter);
+                lvPeliculas.setEmptyView(tvNoHayPeliculas);
             }
 
             @Override
             public void onFailure(Call<List<Pelicula>> call, Throwable throwable) {
-                Toast.makeText(BuscadorActivity.this, "Ocurrió un error al querer obtener la lista de peliculas.",
+                Toast.makeText(BuscadorActivity.this, getString(R.string.errorAlObtenerPeliculas),
                         Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-        @Override
-        public boolean onCreateOptionsMenu (Menu menu){
-            getMenuInflater().inflate(R.menu.options_menu, menu);
-            MenuItem mSearch = menu.findItem(R.id.action_search);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options_menu, menu);
+        MenuItem mSearch = menu.findItem(R.id.buscar);
 
-            SearchView mSearchView = (SearchView) mSearch.getActionView();
-            mSearchView.setQueryHint("Buscar");
+        SearchView mSearchView = (SearchView) mSearch.getActionView();
+        mSearchView.setQueryHint("Buscar");
 
-            mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                @Override
-                public boolean onQueryTextSubmit(String query) {
-                    return false;
-                }
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
-                @Override
-                public boolean onQueryTextChange(String newText) {
-                    mAdapter.getFilter().filter(newText);
-                    return true;
-                }
-            });
-            return super.onCreateOptionsMenu(menu);
-
-        }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                buscadorAdapter.getFilter().filter(newText);
+                return true;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
     }
+}

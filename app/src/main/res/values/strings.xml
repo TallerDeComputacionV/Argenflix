@@ -27,5 +27,20 @@
     <string name="title_activity_perfil">Mi perfil</string>
     <string name="buscarPeliculas">Buscar películas</string>
     <string name="noHayPeliculas">No hay películas que coincidan con tu criterio de búsqueda</string>
+    <string name="obtenerGaleria">Obtener foto de la galería</string>
+    <string name="sacarFoto">Tomar foto</string>
+    <string name="seleccionarFotoPerfil">Seleccionar foto de perfil</string>
+    <string name="errorAlObtenerPeliculas">Ocurrió un error al intentar obtener la lista de películas.</string>
+    <string name="ciudadNoIdentificada">Ciudad no identificada</string>
+    <string name="si">SÍ</string>
+    <string name="noHayFavoritos">No hay películas en tus favoritos</string>
+    <string name="confirmarEliminacionFavoritos">Estás segur@ que querés eliminar todas las películas?</string>
+    <string name="limpiarFavoritos">Limpiar favoritos</string>
+    <string name="activaUbicacion">Activá los servicios de ubicación para que podamos detectar dónde estás.</string>
+    <string name="onboardingText1">Argenflix es la mejor opción para ver las películas y series que más te gustan</string>
+    <string name="onboardingText2">Cine en 3D desde la comodidad de tu casa</string>
+    <string name="onboardingText3">Sol@, con tus amig@s, o con quien vos quieras.</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="buscar">Buscar</string>
 
 </resources>

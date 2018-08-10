@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,8 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.tcv.peliculas.R;
+import com.tcv.peliculas.view.onboarding.OnboardingActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private static final int OLVIDO_USUARIO = 0;
@@ -25,13 +24,14 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login2);
-        String usuario = getCredenciales();
+        setContentView(R.layout.activity_login);
+        String usuario = PerfilActivity.getNombreUsuario(this);
+
         if (!usuario.isEmpty()) {
             Intent intent =
                     new Intent(LoginActivity.this,
                             CategoriasActivity.class);
-            intent.putExtra("usuario",usuario);
+            intent.putExtra("usuario", usuario);
             LoginActivity.this.startActivity(intent);
             LoginActivity.this.finish();
         } else {
@@ -39,15 +39,9 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private String getCredenciales() {
-        SharedPreferences sp = LoginActivity.this.getSharedPreferences(
-                getString(R.string.app_name), Context.MODE_PRIVATE);
-        return sp.getString("usuario", "");
-    }
-
-    private void inicializarVista() {
-        final EditText etUsuario = (EditText) findViewById(R.id.etUsuario);
-        final EditText etContraseña = (EditText) findViewById(R.id.etContraseña);
+     private void inicializarVista() {
+        final EditText etUsuario = findViewById(R.id.etUsuario);
+        final EditText etContraseña = findViewById(R.id.etContraseña);
         Button btnIngresar = (Button) findViewById(R.id.btnIngresar);
 
         inicializarBotonNoPuedoAcceder();
@@ -64,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (usuario.equals("alan") && contraseña.equals("1234")) {
                     persistirCredenciales("alan", "1234");
                     Intent intent = new Intent(LoginActivity.this,
-                            CategoriasActivity.class);
+                            OnboardingActivity.class); //CategoriasActivity.class);
                     LoginActivity.this.startActivity(intent);
                     LoginActivity.this.finish();
                 } else {
@@ -123,7 +117,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void persistirCredenciales(String usuario, String contraseña) {
-        //SharedPreferences
         SharedPreferences sharedPreferences =
                 LoginActivity.this.getSharedPreferences(getString(R.string.app_name),
                         Context.MODE_PRIVATE);

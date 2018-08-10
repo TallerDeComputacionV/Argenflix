@@ -9,16 +9,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.gson.Gson;
 import com.tcv.peliculas.R;
 import com.tcv.peliculas.api.ApiClient;
 import com.tcv.peliculas.model.Favorito;
 import com.tcv.peliculas.model.Pelicula;
 import com.tcv.peliculas.view.PeliculaDetailsActivity;
-
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -43,7 +40,6 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.Favo
     @Override
     public void onBindViewHolder(FavoritosViewHolder holder, int position) {
         ((FavoritosAdapter.FavoritosViewHolder) holder).bind(favoritos.get(position));
-
     }
 
     @Override
@@ -96,7 +92,7 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.Favo
 
                                 @Override
                                 public void onFailure(Call<List<Pelicula>> call, Throwable throwable) {
-                                    Toast.makeText(context, "Ocurrio un error al querer obtener la lista de peliculas.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, context.getString(R.string.errorAlObtenerPeliculas), Toast.LENGTH_SHORT).show();
                                 }
                             });
                 }

@@ -10,7 +10,6 @@ public class Categoria {
     public String getTitulo() {
         return titulo;
     }
-
     public ArrayList<Pelicula> getPeliculas() {
         return peliculas;
     }

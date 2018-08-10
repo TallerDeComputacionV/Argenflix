@@ -20,6 +20,7 @@ public class PeliculaViewerActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         final String videoId = bundle.getString("videoId");
         youTubePlayerView.enterFullScreen();
+
         youTubePlayerView.initialize(new YouTubePlayerInitListener() {
             @Override
             public void onInitSuccess(final YouTubePlayer initializedYouTubePlayer) {

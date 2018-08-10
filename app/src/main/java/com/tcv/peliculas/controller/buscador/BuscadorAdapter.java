@@ -10,7 +10,6 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.support.v7.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.tcv.peliculas.R;
@@ -20,29 +19,27 @@ import com.tcv.peliculas.view.PeliculaDetailsActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Callback;
-
 public class BuscadorAdapter extends BaseAdapter implements Filterable {
 
-    private List<Pelicula> originalData = null;
-    private List<Pelicula> filteredData = null;
-    private LayoutInflater mInflater;
-    private ItemFilter mFilter = new ItemFilter();
+    private List<Pelicula> peliculasTodas = null;
+    private List<Pelicula> peliculasFiltradas = null;
+    private LayoutInflater layoutInflater;
+    private ItemFilter itemFilter = new ItemFilter();
     private Context context;
 
-    public BuscadorAdapter(Context context, List<Pelicula> data) {
-        this.filteredData = data;
-        this.originalData = data;
-        mInflater = LayoutInflater.from(context);
+    public BuscadorAdapter(Context context, List<Pelicula> peliculas) {
+        this.peliculasFiltradas = peliculas;
+        this.peliculasTodas = peliculas;
+        layoutInflater = LayoutInflater.from(context);
         this.context = context;
     }
 
     public int getCount() {
-        return filteredData.size();
+        return peliculasFiltradas.size();
     }
 
     public Object getItem(int position) {
-        return filteredData.get(position);
+        return peliculasFiltradas.get(position);
     }
 
     public long getItemId(int position) {
@@ -50,31 +47,20 @@ public class BuscadorAdapter extends BaseAdapter implements Filterable {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.card_favorito, null);
-
-            holder = new ViewHolder();
-            holder.tvTitulo =  convertView.findViewById(R.id.tvTitulo);
-            holder.tvGenero =  convertView.findViewById(R.id.tvGenero);
-            holder.imagen =  convertView.findViewById(R.id.imagen);
-
-            // Bind the data efficiently with the holder.
-
-            convertView.setTag(holder);
-        } else {
-            // Get the ViewHolder back to get fast access to the TextView
-            // and the ImageView.
-            holder = (ViewHolder) convertView.getTag();
+            convertView = layoutInflater.inflate(R.layout.card_favorito, null);
         }
 
-        // If weren't re-ordering this you could rely on what you set last time
-        final Pelicula pelicula = filteredData.get(position);
-        holder.tvTitulo.setText(String.format("%s (%s)",pelicula.getTitulo(),pelicula.getLanzamiento()));
-        holder.tvGenero.setText(pelicula.getGenero());
-        int drawable = context.getResources().getIdentifier(filteredData.get(position).getImagen(), "drawable",
+        TextView tvTitulo = convertView.findViewById(R.id.tvTitulo);
+        TextView tvGenero = convertView.findViewById(R.id.tvGenero);
+        ImageView imagen = convertView.findViewById(R.id.imagen);
+
+        final Pelicula pelicula = peliculasFiltradas.get(position);
+        tvTitulo.setText(String.format("%s (%s)", pelicula.getTitulo(), pelicula.getLanzamiento()));
+        tvGenero.setText(pelicula.getGenero());
+        int drawable = context.getResources().getIdentifier(peliculasFiltradas.get(position).getImagen(), "drawable",
                 context.getPackageName());
-        holder.imagen.setImageResource(drawable);
+        imagen.setImageResource(drawable);
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,54 +70,51 @@ public class BuscadorAdapter extends BaseAdapter implements Filterable {
                 context.startActivity(intent);
             }
         });
-
         return convertView;
     }
 
-    static class ViewHolder {
-        TextView tvTitulo;
-        TextView tvGenero;
-        ImageView imagen;
-    }
-
     public Filter getFilter() {
-        return mFilter;
+        return itemFilter;
     }
 
     private class ItemFilter extends Filter {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
 
-            String filterString = constraint.toString().toLowerCase();
+            String texto = constraint.toString().toLowerCase();
+            FilterResults resultados = new FilterResults();
 
-            FilterResults results = new FilterResults();
-
-            final List<Pelicula> list = originalData;
+            final List<Pelicula> list = peliculasTodas;
 
             int count = list.size();
-            final List<Pelicula> nlist = new ArrayList<Pelicula>(count);
+            final List<Pelicula> listaFiltrada = new ArrayList<Pelicula>(count);
 
-            Pelicula filterableString;
+            Pelicula pelicula;
 
             for (int i = 0; i < count; i++) {
-                filterableString = list.get(i);
-                if (filterableString.getTitulo().toLowerCase().contains(filterString)) {
-                    nlist.add(filterableString);
+                pelicula = list.get(i);
+                if (normalizar(pelicula.getTitulo()).contains(texto)) {
+                    listaFiltrada.add(pelicula);
                 }
             }
 
-            results.values = nlist;
-            results.count = nlist.size();
+            resultados.values = listaFiltrada;
+            resultados.count = listaFiltrada.size();
 
-            return results;
+            return resultados;
         }
 
-        @SuppressWarnings("unchecked")
+        protected String normalizar(String texto) {
+            texto = texto.toLowerCase().replaceAll("á", "a").replaceAll("é","e").
+                    replaceAll("í","i").replaceAll("ó","o").
+                    replaceAll("ú","u");
+            return texto;
+        }
+
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
-            filteredData = (ArrayList<Pelicula>) results.values;
+            peliculasFiltradas = (ArrayList<Pelicula>) results.values;
             notifyDataSetChanged();
         }
-
     }
 }
